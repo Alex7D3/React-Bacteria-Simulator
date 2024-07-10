@@ -1,8 +1,7 @@
-import { useState, useEffect, useCallback, useRef, MouseEvent, ChangeEventHandler, memo } from 'react';
+import { useState, useEffect, useCallback, useRef, MouseEvent, ChangeEventHandler } from 'react';
 import Grid from "./components/Grid";
 import useInterval from './hooks/useInterval';
 
-const GridMemo = memo(Grid);
 function create2DArray(numRows: number, numCols: number): number[][] {
     const grid = [];
     for (let i = 0; i < numRows; i++)
@@ -64,19 +63,19 @@ export default function App() {
     }, []);
 
     const toggleCell = useCallback((i: number, j: number) => {
-        if (isRunning) return;
-        if (grid[i][j]) {
-            setBacteriaCount(bacteriaCount => bacteriaCount - 1);
-        } else {
-            setBacteriaCount(bacteriaCount => bacteriaCount + 1);
-        }
+        // if (isRunning) return;
+        // if (grid[i][j]) {
+        //     setBacteriaCount(bacteriaCount => bacteriaCount - 1);
+        // } else {
+        //     setBacteriaCount(bacteriaCount => bacteriaCount + 1);
+        // }
         setGrid(grid => grid.map((row, r) => {
             if (r === i) {
                 return [...row.slice(0, j), +!grid[i][j], ...row.slice(j + 1, grid[0].length)];
             } 
             return row;
         }));
-    }, [grid, isRunning]);
+    }, []);
 
     function startStop(): void {
         if (isRunning) {
@@ -153,7 +152,7 @@ export default function App() {
                 </li>
             </ul>
             <header className="App-header">
-                <GridMemo 
+                <Grid
                     handleCellClick={toggleCell}
                     grid={grid}
                 />

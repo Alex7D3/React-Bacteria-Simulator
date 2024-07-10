@@ -4,12 +4,6 @@ type gridprops = { grid: number[][], handleCellClick: (row: number, col: number)
 export default function Grid({ grid, handleCellClick }: gridprops) {
     console.log('grid renderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
     
-    const handleClick = useCallback((row: number, col: number) => {
-        return () => {
-            handleCellClick(row, col);
-        };
-    },[handleCellClick]);
-    
     return (
         <div className="grid"><table><tbody>
             <tr><th scope="col"></th>{grid[0].map((_, col) => <th scope="col" key={col}>{col + 1}</th>)}</tr>{
@@ -18,8 +12,9 @@ export default function Grid({ grid, handleCellClick }: gridprops) {
                     {row.map((value, j) => <td key={j}>
                         <Cell
                             generation={value} 
-                            handleCellClick={handleClick(i, j)}
-                            coords={`(${i + 1}, ${j + 1})`}
+                            handleCellClick={handleCellClick}
+                            i={i}
+                            j={j}
                         />
                         </td>)
                     }</tr>
@@ -29,12 +24,12 @@ export default function Grid({ grid, handleCellClick }: gridprops) {
     );
 }
 
-type cellprops = { coords: string, generation: number, handleCellClick: () => void };
-const Cell = memo(({coords, generation, handleCellClick }: cellprops) => {
+type cellprops = { i: number, j: number, generation: number, handleCellClick: (row: number, col: number) => void };
+const Cell = memo(({i, j, generation, handleCellClick }: cellprops) => {
     console.log('I rendered');
     return (
-        <button className="cell" onClick={handleCellClick}>
-            {Boolean(generation) && <img src="/bacteria-icon.svg" alt={`bacterium at row ${coords}`}></img>}
+        <button className="cell" onClick={() => handleCellClick(i, j)}>
+            {generation > 0 && <img src="/bacteria-icon.svg" alt={`bacterium at row ${i} ${j}`}></img>}
         </button>
     );
 });
