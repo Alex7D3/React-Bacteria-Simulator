@@ -1,5 +1,10 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
+    background-color: whitesmoke;
+    margin: 2rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +12,81 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.controls {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0;
+}
+
+.controls input {
+    width: 6rem;
+}
+
+.controls button {
+    font-size: 1rem;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    color: white;
+    min-width: 5rem;
+    background-color: #121212;
+}
+
+.controls button.start {
+    background-color: #11CC00;
+}
+
+.controls button.stop {
+    background-color: hsl(10, 90%, 50%);
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.grid .row {
+    line-height: 0;
+}
+
+.grid table {
+    border-collapse: collapse;
+}
+
+.grid table th {
+    
+}
+
+.grid table td {
+    padding: 0;
+}
+
+.cell {
+    background: #ffffff;
+    border: 1px solid #999999;
+    font-weight: bold;
+    
+    height: 36px;
+    padding: 0;
+    
+    width: 36px;
+    cursor: pointer;
+}
+
+.cell img {
+    width: 33px;
+    height: 33px;
+}
+
+.highlight {
+    
+}
+
+input {
+    padding: .5rem 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
