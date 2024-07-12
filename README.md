@@ -1,4 +1,5 @@
 # Cell Growth Simulation
+View the site on GitHub Pages [here](https://alex7d3.github.io/React-Bacteria-Simulator/).
 This application simulates the growth patterns of bacterial colonies within a confined space.
 
 The bacteria exist within a 2D grid, where each cell can be empty or contain a single bacterium. The cells divide/duplicate every fixed time interval. All bacteria populate a single free adjacent cell which is chosen at random.
