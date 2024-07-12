@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.4c37c340.css",
-    "main.js": "/static/js/main.124d52d8.js",
-    "static/js/453.8df34255.chunk.js": "/static/js/453.8df34255.chunk.js",
-    "index.html": "/index.html",
-    "main.4c37c340.css.map": "/static/css/main.4c37c340.css.map",
-    "main.124d52d8.js.map": "/static/js/main.124d52d8.js.map",
-    "453.8df34255.chunk.js.map": "/static/js/453.8df34255.chunk.js.map"
+    "main.css": "/React-Bacteria-Simulator/static/css/main.4c37c340.css",
+    "main.js": "/React-Bacteria-Simulator/static/js/main.2b4d59c4.js",
+    "static/js/453.8df34255.chunk.js": "/React-Bacteria-Simulator/static/js/453.8df34255.chunk.js",
+    "index.html": "/React-Bacteria-Simulator/index.html",
+    "main.4c37c340.css.map": "/React-Bacteria-Simulator/static/css/main.4c37c340.css.map",
+    "main.2b4d59c4.js.map": "/React-Bacteria-Simulator/static/js/main.2b4d59c4.js.map",
+    "453.8df34255.chunk.js.map": "/React-Bacteria-Simulator/static/js/453.8df34255.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4c37c340.css",
-    "static/js/main.124d52d8.js"
+    "static/js/main.2b4d59c4.js"
   ]
 }
