@@ -1,35 +1,35 @@
-import { useState, useCallback, useEffect, memo } from "react";
+import { memo } from "react";
 
-type gridprops = { grid: number[][], handleCellClick: (row: number, col: number) => void };
-export default function Grid({ grid, handleCellClick }: gridprops) {
-    console.log('grid renderrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr')
-    
-    return (
-        <div className="grid"><table><tbody>
-            <tr><th scope="col"></th>{grid[0].map((_, col) => <th scope="col" key={col}>{col + 1}</th>)}</tr>{
-                grid.map((row, i) => <tr key={i} className="row">
-                    <th scope="row">{i+1}</th>
-                    {row.map((value, j) => <td key={j}>
-                        <Cell
-                            generation={value} 
-                            handleCellClick={handleCellClick}
-                            i={i}
-                            j={j}
-                        />
-                        </td>)
-                    }</tr>
-                )
-            }
-        </tbody></table></div>
-    );
+export default function Grid({ grid, handleClick }: GridProps) {
+  const gridJSX = [], header = [];
+
+  for (let j = 0; j < grid[0].length; j++) {
+    header.push(<th scope="col" key={j}>{j + 1}</th>);
+  }
+  gridJSX.push(<tr key={-1}><th scope="col"></th>{header}</tr>);
+
+  for (let i = 0; i < grid.length; i++) {
+    const row = [];
+    for (let j = 0; j < grid[0].length; j++) {
+      row.push(<td key={j}><Cell generation={grid[i][j]} handleCellClick={handleClick} i={i} j={j} /></td>);
+    }
+    gridJSX.push(<tr key={i} className="row"><th scope="row" className="row-header">{i + 1}</th>{row}</tr>);
+  }
+
+  return (
+    <div className="grid">
+      <table>
+        <tbody>{gridJSX}</tbody>
+      </table>
+    </div>
+  );
 }
 
-type cellprops = { i: number, j: number, generation: number, handleCellClick: (row: number, col: number) => void };
-const Cell = memo(({i, j, generation, handleCellClick }: cellprops) => {
-    console.log('I rendered');
-    return (
-        <button className="cell" onClick={() => handleCellClick(i, j)}>
-            {generation > 0 && <img src="/bacteria-icon.svg" alt={`bacterium at row ${i} ${j}`}></img>}
-        </button>
-    );
+const Cell = memo(({ i, j, generation, handleCellClick }: CellProps) => {
+  const desc = `bacterium at (${i+1}, ${j+1})`;
+  return (
+    <button className="cell" onClick={() => handleCellClick(i, j)}>
+      {generation > 0 && <img src="/bacteria-icon.svg" alt={desc} title={desc}></img>}
+    </button>
+  );
 });
