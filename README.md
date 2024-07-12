@@ -1,18 +1,22 @@
 # Cell Growth Simulation
 This application simulates the growth patterns of bacterial colonies within a confined space.
-The bacteria exist within a 2D grid, where each cell can be empty or contain a single bacterium.
-The cells divide/duplicate every fixed time interval. This populates a single free adjacent cell which is chosen at random.
+
+The bacteria exist within a 2D grid, where each cell can be empty or contain a single bacterium. The cells divide/duplicate every fixed time interval. All bacteria populate a single free adjacent cell which is chosen at random.
+
 Cells do not divide if all adjacent cells are occupied.
-Bacteria can be added  manually by simply clicking on a cell, and removed by clicking again.
-The grid can be set to sizes between `1 x 1` and `50 x 50`.
+Bacteria can be added  manually by simply clicking on a cell, and removed by clicking again. The grid can be set to sizes between `1 x 1` and `50 x 50`.
+
 An interval between bacteria duplication can be set between `1 second` and `60 seconds`.
 Press the `Start/Stop` button to begin the simulation and pause it. While running, the application updates the generation number as well as the bacteria count.
-Press the `Reset` button to clear the grid, and reset the generation number and bacteria count.
+Press the `Reset` button to clear the grid and reset the generation number and bacteria count.
 ## Keyboard Controls
 - Start/Stop: `Space` 
 - Reset `R Key`
 - Adjust grid size: `↑ ↓ ← →`
+## Performance Metrics
+see [bacteria-simulation-performance](bacteria-simulation-performance.pdf).
 
+![Bacteria Simulator](bacteria-simulator.png "title=Application Screenshot")
 
 # Getting Started with Create React App
 
