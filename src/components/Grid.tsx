@@ -29,7 +29,7 @@ const Cell = memo(({ i, j, generation, handleCellClick }: CellProps) => {
   const desc = `bacterium at (${i+1}, ${j+1})`;
   return (
     <button className="cell" onClick={() => handleCellClick(i, j)}>
-      {generation > 0 && <img src="/bacteria-icon.svg" alt={desc} title={desc}></img>}
+      {generation > 0 && <img src={process.env.PUBLIC_URL + "/bacteria-icon.svg"} alt={desc} title={desc}></img>}
     </button>
   );
 });
