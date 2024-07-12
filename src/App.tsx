@@ -189,7 +189,8 @@ export default function App() {
             disabled={isRunning}
             aria-disabled={isRunning}
             onChange={(e) => {
-              if (timeInterval >= 1 && timeInterval <= 60)
+              const value = parseInt(e.target.value);
+              if (value >= 1 && value <= 60)
                 setTimeInterval(parseInt(e.target.value));
             }}
           /> seconds
